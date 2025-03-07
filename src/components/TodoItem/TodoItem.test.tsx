@@ -15,10 +15,8 @@ describe("TodoItem Component", () => {
       />
     );
 
-    // Проверяем, что текст задачи отображается
     expect(screen.getByText(task)).toBeInTheDocument();
 
-    // Проверяем, что чекбокс отображается
     expect(screen.getByRole("checkbox")).toBeInTheDocument();
   }),
     it("applies completed styles when task is completed", () => {
@@ -32,7 +30,6 @@ describe("TodoItem Component", () => {
         />
       );
 
-      // Проверяем, что текст задачи имеет класс для выполненной задачи
       const taskText = screen.getByText(task);
       expect(taskText).toHaveClass("completed");
     });
@@ -49,11 +46,9 @@ describe("TodoItem Component", () => {
       />
     );
 
-    // Находим чекбокс и кликаем по нему
     const checkbox = screen.getByRole("checkbox");
     fireEvent.click(checkbox);
 
-    // Проверяем, что функция onAddCompletedTask была вызвана с правильным id
     expect(mockOnAddCompletedTask).toHaveBeenCalledWith("1");
   });
 });

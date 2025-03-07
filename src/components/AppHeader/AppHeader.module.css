@@ -5,5 +5,5 @@
 .appHeaderTitle {
   font-size: 4rem;
   font-weight: 100;
-  color: rgb(213, 184, 182);
+  color: var(--color-title-primary);
 }

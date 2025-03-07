@@ -39,6 +39,8 @@ body {
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  position: absolute;
+  z-index: -5;
 }
 input,
 textarea,
@@ -80,6 +82,23 @@ h6 {
   font-size: 34px;
   font-weight: 400;
 }
+:root {
+  /* Основные цвета текста */
+  --color-text-primary: #747474;
+  --color-text-secondary: #d1d1d1;
+
+  /* Цвета фона */
+  --color-bg-primary: #f9f4f4;
+  --color-bg-hover: #e9feea;
+
+  /* Цвета для title и фильтров */
+  --color-title-primary: rgb(213, 184, 182);
+
+  /* Цвет ошибки */
+  --color-error: red;
+
+  --color-bg-main: rgb(223, 220, 215);
+}
 
 @media (max-width: 480px) {
   body {
@@ -87,17 +106,14 @@ h6 {
   }
 }
 
-
 @media (min-width: 481px) and (max-width: 768px) {
   body {
-    font-size: 10px; 
+    font-size: 10px;
   }
 }
-
 
 @media (min-width: 769px) and (max-width: 1024px) {
   body {
-    font-size: 12px; 
+    font-size: 12px;
   }
 }
-

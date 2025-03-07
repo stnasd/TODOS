@@ -2,27 +2,55 @@
 .todoMainContainer {
   width: 60vw;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  background-color: #f9f4f4;
+  background-color: var(--color-bg-primary);
   position: relative;
+  margin: 0 auto;
 }
+
+.todoMainContainer::before,
+.todoMainContainer::after {
+  content: "";
+  position: absolute;
+  background-color: var(--color-bg-primary);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: -1; /* Убедитесь, что псевдоэлементы находятся под основным контейнером */
+}
+
+.todoMainContainer::before {
+  width: 58vw; /* Немного меньше основного контейнера */
+  height: 100%;
+  top: 10px;
+  left: 10px;
+}
+
+.todoMainContainer::after {
+  width: 56vw; /* Еще меньше, чем ::before */
+  height: 100%;
+  top: 20px;
+  left: 20px;
+  z-index: -2; /* Самый нижний слой */
+}
+
 /*-----------TODO HEADER------------*/
 .todoMainHeader {
   padding: 3vh;
-  border-bottom: 1px solid #d1d1d1;
+  border-bottom: 1px solid var(--color-text-secondary);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
   display: flex;
   cursor: pointer;
   align-items: center;
 }
+
 .todoMainHeader:hover {
-  background-color: #e9feea;
+  background-color: var(--color-bg-hover);
   margin-top: -1vh;
   margin-bottom: 1vh;
 }
+
 .todoMainHeader p {
   display: block;
   font-size: 1.5rem;
-  color: #d1d1d1;
+  color: var(--color-text-secondary);
   font-weight: 500;
   padding-left: 6.5vw;
 }
@@ -40,55 +68,54 @@
   top: 1px;
   width: 1vw;
   height: 2.2vh;
-  border: solid #d1d1d1;
+  border: solid var(--color-text-secondary);
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
 }
+
 /*-----------TODO FOOTER------------*/
 .todoMainFooter {
   padding: 3vh;
   display: flex;
   justify-content: space-between;
-  color: #747474;
+  color: var(--color-text-primary);
 }
+
 .todoRemainingCount {
   display: block;
   width: 22.5vw;
 }
+
 .todoMainFilters {
   width: 15vw;
   display: flex;
   justify-content: space-between;
 }
+
 .todoMainFilters button {
-  color: #747474;
-  background-color: #f9f4f4;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
 }
+
 .todoClearCompleted {
   width: 22.5vw;
   text-align: end;
-  background-color: #f9f4f4;
-  color: #747474;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
 }
-.filterCompleted {
-  border-radius: 5px;
-  padding: 0.3vw;
-  border: 1px solid rgb(213, 184, 182);
-}
-.filterAll {
-  border-radius: 5px;
-  border: 1px solid rgb(213, 184, 182);
-  padding: 0.3vw;
-}
+
+.filterCompleted,
+.filterAll,
 .filterActive {
   border-radius: 5px;
   padding: 0.3vw;
-  border: 1px solid rgb(213, 184, 182);
+  border: 1px solid var(--color-title-primary);
 }
+
 /*-----------ADD TASK INPUT------------*/
 .todoMainAddTaskText {
   font-size: 2rem;
-  color: #747474;
+  color: var(--color-text-primary);
   font-weight: 500;
   height: 40vh;
   display: flex;
@@ -96,47 +123,99 @@
   justify-content: center;
   align-items: center;
 }
+
 .todoMainInputForTask {
   height: 40vh;
   position: relative;
 }
+
 .todoMainInputForTask textarea {
   height: 100%;
   width: 60vw;
   font-size: 2rem;
-  color: #747474;
+  color: var(--color-text-primary);
   font-weight: 500;
   resize: none;
   vertical-align: top;
-}
-.todoMainAddTaskButton {
-  width: 10vw;
-  height: 7vh;
-  border-radius: 10px;
-  background-color: #f9f4f4;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: -8vh;
-  right: 1vw;
-  color: rgb(135, 148, 135);
-  border: 1px solid #3f3f3f;
-  background-color: #e0e0e0;
-  font-weight: 800;
 }
 
 .todoMainError {
   position: absolute;
   bottom: -15vh;
   left: 14vh;
-  color: red;
+  color: var(--color-error);
   font-size: 2rem;
   font-weight: 500;
 }
+
 /*-----------ITEMS LIST------------*/
 .todoMainItemsList {
   height: 50vh;
   overflow: auto;
+}
+
+@media (max-width: 480px) {
+  .todoMainFilters button {
+    font-size: 8px;
+    text-align: center;
+    align-items: center;
+    margin-right: 5px;
+  }
+
+  .todoClearCompleted {
+    font-size: 8px;
+    text-align: center;
+  }
+
+  .todoRemainingCount {
+    width: 15vw;
+  }
+
+  .todoMainFooter {
+    padding: 0px;
+    text-align: center;
+  }
+
+  .todoMainFilters {
+    font-size: 8px;
+    word-wrap: wrap;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .todoMainFilters button {
+    font-size: 10px;
+    text-align: center;
+    align-items: center;
+    margin-right: 5px;
+  }
+
+  .todoMainFilters {
+    margin-left: 30px;
+  }
+
+  .todoClearCompleted {
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .todoRemainingCount {
+    width: 15vw;
+  }
+
+  .todoMainFooter {
+    padding: 0px;
+    text-align: center;
+  }
+
+  .todoMainFilters {
+    font-size: 10px;
+    word-wrap: wrap;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .todoMainFilters {
+    font-size: 12px;
+  }
 }

@@ -1,9 +1,10 @@
 .containerApp {
   height: 100vh;
   width: 100vw;
-  background-color: rgb(223, 220, 215);
+  background-color: var(--color-bg-main);
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-bottom: 5vh;
+  position: relative;
 }

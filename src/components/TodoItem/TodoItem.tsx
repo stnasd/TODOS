@@ -5,8 +5,6 @@ import { memo, useState } from "react";
 
 export const TodoItem: React.FC<ITodoItemProps> = memo(
   ({ task, completed, id, onAddCompletedTask }) => {
-    const [checked, setIsChecked] = useState<boolean>(false);
-
     const onClickCheckbox = () => {
       onAddCompletedTask(id);
     };
