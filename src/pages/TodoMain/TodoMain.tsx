@@ -86,6 +86,13 @@ export const TodoMain = () => {
     }
   }, [filter, data]);
 
+  const itemsLeft = useMemo(() => {
+    if (data) {
+      return data.filter((item) => !item.completed).length;
+    }
+    return 0;
+  }, [data]);
+
   return (
     <div className={styles.todoMainContainer} data-testid="todo-main-container">
       <div
@@ -150,7 +157,7 @@ export const TodoMain = () => {
           className={styles.todoRemainingCount}
           data-testid="remaining-count"
         >
-          {data ? data.length : 0} items left
+          {itemsLeft} items left
         </span>
         <div className={styles.todoMainFilters} data-testid="todo-filters">
           <button
@@ -192,3 +199,15 @@ export const TodoMain = () => {
     </div>
   );
 };
+//1) Поле для ввода новых задач — На картинке не видно,
+//   куда пользователь вводит новые задачи. Я реализовал текстовое поле (textarea),
+//   которое появляется при клике на заголовок
+//   "What needs to be done?". Поле автоматически фокусируется при открытии.
+//
+//2)  Обработка ввода — Добавил проверку на минимальную длину текста (2 символа).
+//    Если текст короче, выводится сообщение об ошибке.
+//
+//3)  Добавление задачи — При нажатии Enter или кнопки "Add task" новая задача добавляется в список.
+//    Для уникальности каждой задачи используется uuidv4.
+//
+//4)  Медиа queries — Добавил медиа запросы, для десктопных, планшетных и мобильных устройств.

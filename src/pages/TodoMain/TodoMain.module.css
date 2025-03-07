@@ -78,6 +78,7 @@
   padding: 3vh;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   color: var(--color-text-primary);
 }
 
@@ -153,7 +154,7 @@
   height: 50vh;
   overflow: auto;
 }
-
+/*-----------MEDIA QUERIES------------*/
 @media (max-width: 480px) {
   .todoMainFilters button {
     font-size: 8px;

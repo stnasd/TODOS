@@ -70,3 +70,54 @@
   text-decoration: line-through;
   text-decoration-thickness: 1px;
 }
+
+/*-----------MEDIA QUERIES------------*/
+
+@media (max-width: 480px) {
+  .itemCheckbox .itemCheckmark {
+    width: 5vw;
+    height: 5vw;
+    border: 0.1vw solid #ccc;
+  }
+  .itemCheckbox .itemCheckmark::after {
+    left: 1.4vw;
+    top: 0.4vh;
+    width: 1.5vw;
+    height: 2vw;
+  }
+  .itemText {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .itemCheckbox .itemCheckmark {
+    width: 5vw;
+    height: 5vw;
+    border: 0.1vw solid #ccc;
+  }
+  .itemCheckbox .itemCheckmark::after {
+    left: 1.4vw;
+    top: 0.4vh;
+    width: 1.9vw;
+    height: 2.4vw;
+  }
+  .itemText {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .itemCheckbox .itemCheckmark::after {
+    content: "";
+    position: absolute;
+    left: 0.8vw;
+    top: 0.3vh;
+    width: 0.7vw;
+    height: 1.5vw;
+    border: solid rgb(51, 134, 51);
+    border-width: 0 0.2vw 0.2vw 0;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+  }
+}
