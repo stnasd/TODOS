@@ -1,0 +1,72 @@
+/*-----------TODO ITEM------------*/
+.todoItem {
+  display: flex;
+  border-bottom: 1.5px solid #d1d1d1;
+  padding: 3vh;
+  align-items: center;
+}
+/*-----------ITEM CHECKBOX------------*/
+.itemCheckbox input {
+  display: none;
+}
+
+.itemCheckbox .itemCheckmark {
+  width: 2.4vw;
+  height: 2.4vw;
+  border: 0.1vw solid #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.itemCheckbox .itemCheckmark::after {
+  content: "";
+  position: absolute;
+  left: 0.8vw;
+  top: 0.3vh;
+  width: 0.7vw;
+  height: 1.5vw;
+  border: solid rgb(51, 134, 51);
+  border-width: 0 0.2vw 0.2vw 0;
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+@keyframes drawCheckmark {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(45deg) scale(1);
+  }
+}
+
+.itemCheckbox input:checked + .itemCheckmark::after {
+  opacity: 1;
+  animation: drawCheckmark 0.5s ease-out forwards;
+}
+
+.itemCheckbox input:checked + .itemCheckmark {
+  border-color: rgb(51, 134, 51);
+}
+
+/*-----------ITEM TEXT------------*/
+.itemText {
+  display: inline-block;
+  width: 40vw;
+  margin-left: 7vw;
+  font-weight: 300;
+  font-size: 2rem;
+  line-height: 3vh;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+.completed {
+  color: #d1d1d1;
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}

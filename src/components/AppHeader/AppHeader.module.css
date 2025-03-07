@@ -1,0 +1,9 @@
+.appHeaderConatiner {
+  padding-top: 8vh;
+  padding-bottom: 3vh;
+}
+.appHeaderTitle {
+  font-size: 4rem;
+  font-weight: 100;
+  color: rgb(213, 184, 182);
+}

@@ -1,0 +1,142 @@
+/*-----------TODO MAIN CONTAINER------------*/
+.todoMainContainer {
+  width: 60vw;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-color: #f9f4f4;
+  position: relative;
+}
+/*-----------TODO HEADER------------*/
+.todoMainHeader {
+  padding: 3vh;
+  border-bottom: 1px solid #d1d1d1;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+}
+.todoMainHeader:hover {
+  background-color: #e9feea;
+  margin-top: -1vh;
+  margin-bottom: 1vh;
+}
+.todoMainHeader p {
+  display: block;
+  font-size: 1.5rem;
+  color: #d1d1d1;
+  font-weight: 500;
+  padding-left: 6.5vw;
+}
+
+.todoMainHeaderCheckmark {
+  width: 3vw;
+  height: 3vh;
+  position: relative;
+}
+
+.checkmark::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 1px;
+  width: 1vw;
+  height: 2.2vh;
+  border: solid #d1d1d1;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+/*-----------TODO FOOTER------------*/
+.todoMainFooter {
+  padding: 3vh;
+  display: flex;
+  justify-content: space-between;
+  color: #747474;
+}
+.todoRemainingCount {
+  display: block;
+  width: 22.5vw;
+}
+.todoMainFilters {
+  width: 15vw;
+  display: flex;
+  justify-content: space-between;
+}
+.todoMainFilters button {
+  color: #747474;
+  background-color: #f9f4f4;
+}
+.todoClearCompleted {
+  width: 22.5vw;
+  text-align: end;
+  background-color: #f9f4f4;
+  color: #747474;
+}
+.filterCompleted {
+  border-radius: 5px;
+  padding: 0.3vw;
+  border: 1px solid rgb(213, 184, 182);
+}
+.filterAll {
+  border-radius: 5px;
+  border: 1px solid rgb(213, 184, 182);
+  padding: 0.3vw;
+}
+.filterActive {
+  border-radius: 5px;
+  padding: 0.3vw;
+  border: 1px solid rgb(213, 184, 182);
+}
+/*-----------ADD TASK INPUT------------*/
+.todoMainAddTaskText {
+  font-size: 2rem;
+  color: #747474;
+  font-weight: 500;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.todoMainInputForTask {
+  height: 40vh;
+  position: relative;
+}
+.todoMainInputForTask textarea {
+  height: 100%;
+  width: 60vw;
+  font-size: 2rem;
+  color: #747474;
+  font-weight: 500;
+  resize: none;
+  vertical-align: top;
+}
+.todoMainAddTaskButton {
+  width: 10vw;
+  height: 7vh;
+  border-radius: 10px;
+  background-color: #f9f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -8vh;
+  right: 1vw;
+  color: rgb(135, 148, 135);
+  border: 1px solid #3f3f3f;
+  background-color: #e0e0e0;
+  font-weight: 800;
+}
+
+.todoMainError {
+  position: absolute;
+  bottom: -15vh;
+  left: 14vh;
+  color: red;
+  font-size: 2rem;
+  font-weight: 500;
+}
+/*-----------ITEMS LIST------------*/
+.todoMainItemsList {
+  height: 50vh;
+  overflow: auto;
+}
