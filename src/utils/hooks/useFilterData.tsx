@@ -9,22 +9,20 @@ export const useFilterData = (
   const [itemsLeft, setItemsLeft] = useState<number>(0);
 
   useEffect(() => {
-    console.log(filter, "filter", data, "data");
     if (data) {
       switch (filter) {
         case "all":
           setFitleredData(data);
           break;
         case "completed":
-          setFitleredData(() => data.filter((item) => item.completed));
+          setFitleredData(data.filter((item) => item.completed));
           break;
         case "active":
-          setFitleredData(() => data.filter((item) => !item.completed));
+          setFitleredData(data.filter((item) => !item.completed));
           break;
       }
       setItemsLeft(data.filter((item) => !item.completed).length);
     }
-    console.log(filter, "filter", data, "data");
   }, [data, filter]);
 
   return [filteredData, itemsLeft];

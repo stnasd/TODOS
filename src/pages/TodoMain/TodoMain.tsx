@@ -14,7 +14,6 @@ export const TodoMain = () => {
   const [filter, setFilter] = useState<TFilterType>("all");
 
   const textareaRef = useRef<HTMLTextAreaElement>(null);
-  console.log("render");
   useEffect(() => {
     if (isOpenInput && textareaRef.current) {
       textareaRef.current.focus();
@@ -74,7 +73,6 @@ export const TodoMain = () => {
 
   const [filteredData, itemsLeft] = useFilterData(filter, data);
 
-  console.log(filteredData);
   return (
     <div className={styles.todoMainContainer} data-testid="todo-main-container">
       <div
