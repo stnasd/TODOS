@@ -14,7 +14,7 @@ export const TodoItem: React.FC<ITodoItemProps> = memo(
         <label className={styles.itemCheckbox} data-testid="checkmark">
           <input
             type="checkbox"
-            onClick={onClickCheckbox}
+            onChange={onClickCheckbox}
             checked={completed}
           />
           <span className={styles.itemCheckmark}></span>

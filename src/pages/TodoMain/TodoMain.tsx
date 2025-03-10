@@ -4,6 +4,7 @@ import { TFilterType, TItemTodo } from "@/types/types";
 import cn from "classnames";
 import { v4 as uuidv4 } from "uuid";
 import styles from "./TodoMain.module.css";
+import { useFilterData } from "@/utils/hooks/useFilterData";
 
 export const TodoMain = () => {
   const [isOpenInput, setIsOpenInput] = useState<boolean>(false);
@@ -13,7 +14,7 @@ export const TodoMain = () => {
   const [filter, setFilter] = useState<TFilterType>("all");
 
   const textareaRef = useRef<HTMLTextAreaElement>(null);
-
+  console.log("render");
   useEffect(() => {
     if (isOpenInput && textareaRef.current) {
       textareaRef.current.focus();
@@ -71,28 +72,9 @@ export const TodoMain = () => {
     );
   }, []);
 
-  const filteredData = useMemo(() => {
-    if (data) {
-      switch (filter) {
-        case "all":
-          return data;
-        case "completed":
-          return data.filter((item) => item.completed);
-        case "active":
-          return data.filter((item) => !item.completed);
-        default:
-          return data;
-      }
-    }
-  }, [filter, data]);
+  const [filteredData, itemsLeft] = useFilterData(filter, data);
 
-  const itemsLeft = useMemo(() => {
-    if (data) {
-      return data.filter((item) => !item.completed).length;
-    }
-    return 0;
-  }, [data]);
-
+  console.log(filteredData);
   return (
     <div className={styles.todoMainContainer} data-testid="todo-main-container">
       <div
@@ -112,9 +94,7 @@ export const TodoMain = () => {
             <p className={styles.todoMainError} data-testid="error-message">
               {error}
             </p>
-          ) : (
-            ""
-          )}
+          ) : null}
           <textarea
             ref={textareaRef}
             placeholder="Add task"
@@ -129,7 +109,7 @@ export const TodoMain = () => {
           className={styles.todoMainItemsList}
           data-testid="todo-main-items-list"
         >
-          {filteredData && filteredData.length > 0 ? (
+          {filteredData ? (
             <>
               {filteredData.map((item) => (
                 <div key={item.id} data-testid="todo-item">
